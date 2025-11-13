@@ -1,12 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Loader = ({ onLoadingComplete }) => {
-  // Auto-hide after 5 seconds
+const ScreenLoader = ({ onLoadingComplete }) => {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       onLoadingComplete();
-    }, 5000); // 5 seconds
+    }, 3000); 
 
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);
@@ -30,7 +29,6 @@ const Loader = ({ onLoadingComplete }) => {
         zIndex: 9999,
       }}
     >
-      {/* Logo/Title */}
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -121,4 +119,4 @@ const Loader = ({ onLoadingComplete }) => {
   );
 };
 
-export default Loader;
+export default ScreenLoader;

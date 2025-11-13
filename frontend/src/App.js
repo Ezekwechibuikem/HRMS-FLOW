@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import SimpleLoadingScreen from './components/common/loader';
-import MainLayout from './components/layout/MainLayout';
-import Dashboard from './pages/Dashboard';
-import GenericPage from './pages/GenericPage';
-import {
-  Users,
-  Clock,
-  FileText,
-  Wallet,
-  Calendar,
-  DollarSign,
-  PiggyBank,
-  BarChart3,
-  Settings,
-  Loader,
-} from 'lucide-react';
+import ScreenLoader from './components/common/screenloader';
+// import MainLayout from './components/layout/MainLayout';
+// import Dashboard from './pages/Dashboard';
+// import GenericPage from './pages/GenericPage';
+// import {
+//   Users,
+//   Clock,
+//   FileText,
+//   Wallet,
+//   Calendar,
+//   DollarSign,
+//   PiggyBank,
+//   BarChart3,
+//   Settings,
+//   Loader,
+// } from 'lucide-react';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -28,14 +28,18 @@ function App() {
 
   // Show loading screen for 5 seconds
   if (loading) {
-    return <Loader onLoadingComplete={handleLoadingComplete} />;
+    return <ScreenLoader onLoadingComplete={handleLoadingComplete} />;
   }
 
   // After 5 seconds, show the actual app
   return (
     <Router>
       <AnimatePresence mode="wait">
-        <MainLayout>
+      <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+
+        {/* <MainLayout>
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route
@@ -138,7 +142,7 @@ function App() {
               }
             />
           </Routes>
-        </MainLayout>
+        </MainLayout> */}
       </AnimatePresence>
     </Router>
   );
